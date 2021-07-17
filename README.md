@@ -1,15 +1,25 @@
 # Overview
 This repository contains our team([randomTeamName](https://www.aicrowd.com/challenges/global-wheat-challenge-2021/teams/randomTeamName))'s first place solution of the [Global Wheat Challenge 2021](https://www.aicrowd.com/challenges/global-wheat-challenge-2021). <!-- comprised of [ksnxr](https://www.aicrowd.com/participants/ksnxr) and [czz1997](https://www.aicrowd.com/participants/czz1997). -->
 
-# Get Started
-Please first make sure you have `Python 3.7.10` installed to reproduce our result, since this is the Python version on Google Colab Pro where we run most of our experiments. If you want to experiment on your own, please refer to [this](https://github.com/ultralytics/yolov5#quick-start-examples) for Python version requirement.
+Our solution is based on a customized version of [this excellent YOLOv5 repo](https://github.com/ultralytics/yolov5).
+We also use pseudo labeling and model ensembling methods to boost the performance.
 
-1. clone this repo and our customized YOLOv5 repo.
+# Get Started
+Please first make sure you have `Python==3.7.10` installed to reproduce our result, since this is the Python version on Google Colab Pro where we ran most of our experiments. If you want to experiment on your own, you will need `Python>=3.6.0`.
+
+1. clone this repo and [our customized YOLOv5 repo](https://github.com/ksnxr/GWC_YOLOv5).
     ```
     $ git clone https://github.com/ksnxr/GWC_solution.git
     $ cd GWC_solution && git clone https://github.com/ksnxr/GWC_YOLOv5.git
     ```
 2. install required dependencies.
+    * Please refer to [this](https://github.com/ultralytics/yolov5#quick-start-examples) for installing YOLOv5 dependencies.
+      If you are using Google Colab, most of the dependencies should be in place, except PyYAML and ensemble_boxes. You can install them by:
+      ```
+      !pip uninstall -y PyYAML
+      !pip install PyYAML==5.3.1
+      !pip install ensemble_boxes
+      ```
     * We require specific version of the following packages to reproduce our result:
 
         * PyTorch: 1.9.0+cu102
@@ -21,16 +31,18 @@ Please first make sure you have `Python 3.7.10` installed to reproduce our resul
         ```
         $ cd GWC_solution && pip install requirements.txt
         ```
-    * If you are using Google Colab, most of the other dependencies should be in place, except PyYAML and ensemble_boxes. You can install them by:
-        ```
-        !pip uninstall -y PyYAML
-        !pip install PyYAML==5.3.1
-        !pip install ensemble_boxes
-        ```
-    * Otherwise, please run the following command to install all the required dependencies:
-        ```
-        $ cd GWC_solution/GWC_YOLOv5 && pip install requirements.txt
-        ```
+      
+# Hardware Requirements And Training Time
+
+To run our notebooks (for training), you will need 
+* roughly 20GB of RAM 
+* a GPU with 16GB VRAM (such as NVIDIA Tesla V100 and P100).
+
+RAM size is a soft requirement as you can remove the `--cache_images` or `--cache` argument to reduce RAM usage, but you will get a much longer training time.
+
+The following training time estimates are observed from V100 with `--cache_images` on:
+* For training the base models, each epoch takes roughly 2 minutes.
+* For fine-tuning models with pseudo labels, each epoch takes about 4 minutes.
 
 # Steps To Reproduce
 
@@ -45,10 +57,14 @@ Please first make sure you have `Python 3.7.10` installed to reproduce our resul
 The final single model yields [**0.700**](https://www.aicrowd.com/challenges/global-wheat-challenge-2021/submissions/149238) on the final private leaderboard.
 
 ## Use Our Trained Model
-If you find it time-consuming to train models, we also provide our trained models so that you can simply run the inference code. You can access our trained models from here(We will upload them soon).
+If you do not want to train these models, we also provide weight file of our final model so that you can simply run the inference code. 
+You can access it from here(We will add the link soon).
 
 # Experiment On Your Own
 If you would like to do some experiments on our solution, we also provide our general training and inference notebooks. 
+
+* For _general training_, see [placeholder](placeholder). This notebook provides a complete pipeline for training, pseudo labeling, fine-tuning with pseudo labels, detecting and saving to submission.
+* For _general inference_, see [placeholder](placeholder). This notebook contains codes to direct inference and ensemble models with weighted boxes fusion.
 
 <!--
 # Environment
