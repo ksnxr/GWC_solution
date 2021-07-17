@@ -57,8 +57,8 @@ The following training time estimates are observed from V100 with `--cache_image
 The final single model yields [**0.700**](https://www.aicrowd.com/challenges/global-wheat-challenge-2021/submissions/149238) on the final private leaderboard.
 
 ## Use Our Trained Model
-If you do not want to train these models, we also provide weight file of our final model so that you can simply run the inference code. 
-You can access it from here(We will add the link soon).
+If you do not want to train these models, we also provide the weights of our final model so that you can simply run the inference code. 
+You can access it from [here](https://drive.google.com/file/d/1-Figr7M-AJvrfbLq7jqpJeGhyrf5Un44/view?usp=sharing).
 
 # Experiment On Your Own
 If you would like to do some experiments on our solution, we also provide our general training and inference notebooks. 
