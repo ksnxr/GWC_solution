@@ -63,8 +63,8 @@ You can access it from here(We will add the link soon).
 # Experiment On Your Own
 If you would like to do some experiments on our solution, we also provide our general training and inference notebooks. 
 
-* For _general training_, see [placeholder](placeholder). This notebook provides a complete pipeline for training, pseudo labeling, fine-tuning with pseudo labels, detecting and saving to submission.
-* For _general inference_, see [placeholder](placeholder). This notebook contains codes to direct inference and ensemble models with weighted boxes fusion.
+* For _general training_, see [general-train.ipynb](general/general-train.ipynb). This notebook provides a complete pipeline for training, pseudo labeling, fine-tuning with pseudo labels, detecting and saving to submission.
+* For _general inference_, see [general-inference.ipynb](general/general-inference.ipynb). This notebook contains codes to direct inference and ensemble models with weighted boxes fusion.
 
 <!--
 # Environment
