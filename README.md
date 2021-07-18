@@ -61,6 +61,22 @@ The final single model yields [**0.700**](https://www.aicrowd.com/challenges/glo
 If you do not want to train these models, we also provide the weights of our final model so that you can simply run the inference code. 
 You can access it from [here](https://drive.google.com/file/d/1-Figr7M-AJvrfbLq7jqpJeGhyrf5Un44/view?usp=sharing).
 
+Then you can reproduce our results on Google Colab:
+```
+# clone source codes
+!git clone https://github.com/ksnxr/GWC_YOLOv5.git
+
+# retrieve test images
+from google.colab import drive
+drive.mount("/content/drive")
+!unzip -q drive/MyDrive/test.zip -d ./
+
+# inference
+!cd GWC_YOLOv5 && python detect.py --img-size 800 --name best --weights /path/to/best.pt --source ../test --augment --nosave --save-csv --conf-thres 0.5
+```
+
+The result .csv file can be found in `GWC_YOLOv5/runs/detect/best/submission.csv`.
+
 # Experiment On Your Own
 If you would like to do some experiments on our solution, we also provide our general training and inference notebooks. 
 
