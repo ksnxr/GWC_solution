@@ -2,15 +2,14 @@
 This repository contains our team([randomTeamName](https://www.aicrowd.com/challenges/global-wheat-challenge-2021/teams/randomTeamName))'s first place solution of the [Global Wheat Challenge 2021](https://www.aicrowd.com/challenges/global-wheat-challenge-2021). <!-- comprised of [ksnxr](https://www.aicrowd.com/participants/ksnxr) and [czz1997](https://www.aicrowd.com/participants/czz1997). -->
 
 Our solution is based on a customized version of [this excellent YOLOv5 repo](https://github.com/ultralytics/yolov5).
-We also use pseudo labeling and model ensembling methods to boost the performance.
+We also use pseudo labeling, model ensembling methods and out of domain validation set to boost the performance.
 
 # Get Started
 Please first make sure you have `Python==3.7.10` installed to reproduce our result, since this is the Python version on Google Colab Pro where we ran most of our experiments. If you want to experiment on your own, you will need `Python>=3.6.0`.
 
-1. clone this repo and [our customized YOLOv5 repo](https://github.com/ksnxr/GWC_YOLOv5).
+1. clone [our customized YOLOv5 repo](https://github.com/ksnxr/GWC_YOLOv5) into `GWC_YOLOv5`.
     ```
-    $ git clone https://github.com/ksnxr/GWC_solution.git
-    $ cd GWC_solution && git clone https://github.com/ksnxr/GWC_YOLOv5.git
+    $ git clone https://github.com/ksnxr/GWC_YOLOv5.git
     ```
 2. install required dependencies.
     * Please refer to [this](https://github.com/ultralytics/yolov5#quick-start-examples) for installing YOLOv5 dependencies.
@@ -27,11 +26,13 @@ Please first make sure you have `Python==3.7.10` installed to reproduce our resu
         * numpy: 1.19.5
         * scipy: 1.4.1
     
-        You can install these packages by:
+        <!-- You can install these packages by:
         ```
         $ cd GWC_solution && pip install requirements.txt
-        ```
-      
+        ``` -->
+    
+3. run notebooks in this repo under the parent directory of `GWC_YOLOv5`.    
+   
 # Hardware Requirements And Training Time
 
 To run our notebooks (for training), you will need 
@@ -75,7 +76,7 @@ drive.mount("/content/drive")
 !cd GWC_YOLOv5 && python detect.py --img-size 800 --name best --weights /path/to/best.pt --source ../test --augment --nosave --save-csv --conf-thres 0.5
 ```
 
-The result .csv file can be found in `GWC_YOLOv5/runs/detect/best/submission.csv`.
+The detection results can be found in `GWC_YOLOv5/runs/detect/best/submission.csv`.
 
 # Experiment On Your Own
 If you would like to do some experiments on our solution, we also provide our general training and inference notebooks. 
