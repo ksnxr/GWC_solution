@@ -1,8 +1,8 @@
 # Overview
 This repository contains our team([randomTeamName](https://www.aicrowd.com/challenges/global-wheat-challenge-2021/teams/randomTeamName))'s first place solution of the [Global Wheat Challenge 2021](https://www.aicrowd.com/challenges/global-wheat-challenge-2021). <!-- comprised of [ksnxr](https://www.aicrowd.com/participants/ksnxr) and [czz1997](https://www.aicrowd.com/participants/czz1997). -->
 
-Our solution is based on a customized version of [this excellent YOLOv5 repo](https://github.com/ultralytics/yolov5).
-We also use pseudo labeling, model ensembling methods and out of domain validation set to boost the performance.
+Our solution is based on a [customized version](https://github.com/ksnxr/GWC_YOLOv5) of [this excellent YOLOv5 repo](https://github.com/ultralytics/yolov5).
+We also use test-time augmentation, pseudo labeling, model ensembling methods and out of domain validation set to boost the performance.
 
 # Get Started
 Please first make sure you have `Python==3.7.10` installed to reproduce our result, since this is the Python version on Google Colab Pro where we ran most of our experiments. If you want to experiment on your own, you will need `Python>=3.6.0`.
@@ -79,10 +79,17 @@ drive.mount("/content/drive")
 The detection results can be found in `GWC_YOLOv5/runs/detect/best/submission.csv`.
 
 # Experiment On Your Own
-If you would like to do some experiments on our solution, we also provide our general training and inference notebooks. 
+If you wish to do some experiments on our solution, we also provide our general training and inference notebooks. 
 
 * For _general training_, see [general-train.ipynb](general/general-train.ipynb). This notebook provides a complete pipeline for training, pseudo labeling, fine-tuning with pseudo labels, detecting and saving to submission.
 * For _general inference_, see [general-inference.ipynb](general/general-inference.ipynb). This notebook contains codes to direct inference and ensemble models with weighted boxes fusion.
+
+**_Note_**: 
+   * You need to run [KFold.ipynb](KFold.ipynb) first to generate 4 training folds with OOD val set. If you wish to experiment on another domain-shift dataset, you can also modify this notebook to generate your own folds.
+   * Also ensure that you are using the `master` branch of `GWC_YOLOv5`.
+
+We highly recommend using fold index 3 (last fold) for experiment, as we found that this fold has the best performance.
+According to our training records, we once achieved a final ADA of 0.698 with fold 3 only.
 
 <!--
 # Environment
