@@ -60,7 +60,7 @@ The final single model yields [**0.700**](https://www.aicrowd.com/challenges/glo
 
 ## Use Our Trained Model
 If you do not want to train these models, we also provide the weights of our final model so that you can simply run the inference code. 
-You can access it from [here](https://drive.google.com/file/d/1-Figr7M-AJvrfbLq7jqpJeGhyrf5Un44/view?usp=sharing).
+You can access it from [here](https://1drv.ms/u/s!AuW-Cu-6nsdEgvojXwLPK4rVTe7WHA?e=Riwv5B).
 
 Then you can reproduce our results on Google Colab:
 ```
